@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="传统系列"/>
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="山水系列"/>
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="欧式系列"/>
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="大理石纹"/>
+
+        <item
+            android:id="@+id/nav_yudiao"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="玉雕系列"/>
+    </group>
+
+
+
+</menu>
