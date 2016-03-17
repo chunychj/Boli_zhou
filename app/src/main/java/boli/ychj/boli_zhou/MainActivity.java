@@ -1,6 +1,5 @@
 package boli.ychj.boli_zhou;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar mToolbar;
-    private ProgressDialog dialog;
+
 
     /**
      * SDK初始化建议放在启动页
@@ -63,8 +62,7 @@ public class MainActivity extends AppCompatActivity
 
         switchToBook();
 
-        dialog = new ProgressDialog(this);
-        dialog.setIndeterminate(true);
+
 
       //  BDAutoUpdateSDK.silenceUpdateAction(this);
 
@@ -86,14 +84,14 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public void onCheckComplete() {
-            dialog.dismiss();
+          //  dialog.dismiss();
         }
 
     }
 
     @Override
     protected void onDestroy() {
-        dialog.dismiss();
+
         super.onDestroy();
     }
 
@@ -164,6 +162,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            BDAutoUpdateSDK.uiUpdateAction(this, new MyUICheckUpdateCallback());
             return true;
         }
 
@@ -184,9 +183,10 @@ public class MainActivity extends AppCompatActivity
             switchToBook3();
         } else if (id == R.id.nav_manage) {
             switchToBook2();
-        } else if (id == R.id.nav_yudiao) {
-            switchToBook5();
         }
+//        else if (id == R.id.nav_yudiao) {
+//            switchToBook5();
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
