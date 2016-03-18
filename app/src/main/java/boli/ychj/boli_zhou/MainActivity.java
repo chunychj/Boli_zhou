@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.baidu.autoupdatesdk.BDAutoUpdateSDK;
-import com.baidu.autoupdatesdk.UICheckUpdateCallback;
 
 import cn.bmob.v3.Bmob;
 
@@ -62,7 +61,8 @@ public class MainActivity extends AppCompatActivity
 
         switchToBook();
 
-
+        dialog = new ProgressDialog(this);
+        dialog.setIndeterminate(true);
 
       //  BDAutoUpdateSDK.silenceUpdateAction(this);
 
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onDestroy() {
-
+        dialog.dismiss();
         super.onDestroy();
     }
 
@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            BDAutoUpdateSDK.uiUpdateAction(this, new MyUICheckUpdateCallback());
             return true;
         }
 
