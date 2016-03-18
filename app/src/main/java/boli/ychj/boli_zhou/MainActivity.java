@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.baidu.autoupdatesdk.BDAutoUpdateSDK;
+import com.baidu.autoupdatesdk.UICheckUpdateCallback;
 
 import cn.bmob.v3.Bmob;
 
@@ -61,10 +62,7 @@ public class MainActivity extends AppCompatActivity
 
         switchToBook();
 
-        dialog = new ProgressDialog(this);
-        dialog.setIndeterminate(true);
-
-      //  BDAutoUpdateSDK.silenceUpdateAction(this);
+       BDAutoUpdateSDK.silenceUpdateAction(this);
 
 
     }
@@ -73,9 +71,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        BDAutoUpdateSDK.silenceUpdateAction(MainActivity.this);
-      //  dialog.show();
-      //  BDAutoUpdateSDK.uiUpdateAction(this, new MyUICheckUpdateCallback());
+
     }
 
 
@@ -91,7 +87,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onDestroy() {
-        dialog.dismiss();
+
         super.onDestroy();
     }
 
@@ -182,10 +178,9 @@ public class MainActivity extends AppCompatActivity
             switchToBook3();
         } else if (id == R.id.nav_manage) {
             switchToBook2();
+        } else if (id == R.id.nav_yudiao) {
+            switchToBook5();
         }
-//        else if (id == R.id.nav_yudiao) {
-//            switchToBook5();
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
